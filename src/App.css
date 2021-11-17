@@ -111,8 +111,13 @@
  }
 
  .taskName {
-   margin-left       : 5rem;
+   margin-left: 5rem;
+
    /* justify-content: left; */
+ }
+
+ .done {
+   text-decoration: line-through;
  }
 
  /* Footer */
