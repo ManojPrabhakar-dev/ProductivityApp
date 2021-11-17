@@ -12,7 +12,9 @@ const TaskItem = (props) => {
   }
   return (
     <div className="taskItem">
-      <input type="checkbox" onChange={handleCheckedChanged} />
+      <div className="taskCheck">
+        <input type="checkbox" onChange={handleCheckedChanged} />
+      </div>
       <p className={`taskName ${isDone && "done"}`}> {props.taskName} </p>
       <button className="deleteTask" onClick={handleDelete}>
         Delete

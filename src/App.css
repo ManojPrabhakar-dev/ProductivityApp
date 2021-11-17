@@ -105,13 +105,19 @@
  /* Task List Area */
  .taskItem {
    display              : grid;
-   grid-template-columns: 5fr 1fr;
+   grid-template-columns: 1fr 5fr 1fr;
    font-size            : 22px;
    padding              : 1rem;
  }
 
+ .taskCheck {
+   display        : flex;
+   justify-content: center;
+   align-items    : center;
+ }
+
  .taskName {
-   margin-left: 5rem;
+   /* margin-left: 5rem; */
 
    /* justify-content: left; */
  }
