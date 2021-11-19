@@ -116,11 +116,11 @@
    align-items    : center;
  }
 
- .taskName {
-   /* margin-left: 5rem; */
+ /* .taskName {
+   margin-left: 5rem;
 
-   /* justify-content: left; */
- }
+   justify-content: left;
+ } */
 
  .done {
    text-decoration: line-through;

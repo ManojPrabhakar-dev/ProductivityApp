@@ -7,14 +7,24 @@ import CreateTask from "./components/CreateTask";
 import TaskItem from "./components/TaskItem";
 
 function App() {
-  const [items, setItem] = useState([]); //{ title: "", description: "" }
+  const [items, setItem] = useState([]);
 
   function onAddTask(_item) {
     setItem([...items, _item]);
   }
 
-  function deleteTask(_item) {
-    let newItems = items.filter((item) => _item !== item);
+  function onUpdateTask(_item) {
+    // let item = items.findIndex((item) => item.title === _item.title);
+    // items[item].isDone = _item.isDone;
+
+    let item = items.find((item) => item.id === _item.id);
+    item.isDone = _item.isDone;
+
+    setItem([...items]);
+  }
+
+  function deleteTask(_id) {
+    let newItems = items.filter((item) => item.id !== _id);
     setItem([...newItems]);
   }
 
@@ -23,13 +33,15 @@ function App() {
       <Header />
       <CreateTask onAddTask={onAddTask} />
       <div className="container">
-        {items.map((task, idx) => {
+        {items.map((task) => {
           return (
             <TaskItem
-              id={idx}
-              key={idx}
-              taskName={task}
+              id={task.id}
+              key={task.id}
+              taskName={task.title}
+              isDone={task.isDone}
               onDelete={deleteTask}
+              onUpdate={onUpdateTask}
             />
           );
         })}

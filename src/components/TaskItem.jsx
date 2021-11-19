@@ -1,21 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 
 const TaskItem = (props) => {
-  const [isDone, setDone] = useState(false);
+  // const [isDone, setDone] = useState(false);
 
   function handleCheckedChanged(event) {
-    setDone(event.target.checked);
+    // setDone(event.target.checked);
+    props.onUpdate({ id: props.id, isDone: event.target.checked });
   }
 
-  function handleDelete(event) {
-    props.onDelete(props.taskName);
+  function handleDelete() {
+    props.onDelete(props.id);
   }
+
   return (
     <div className="taskItem">
       <div className="taskCheck">
         <input type="checkbox" onChange={handleCheckedChanged} />
       </div>
-      <p className={`taskName ${isDone && "done"}`}> {props.taskName} </p>
+      <p className={`taskName ${props.isDone && "done"}`}> {props.taskName} </p>
       <button className="deleteTask" onClick={handleDelete}>
         Delete
       </button>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { v4 as uuid } from "uuid";
 
 const CreateTask = (props) => {
   const [item, setItem] = useState("");
@@ -8,7 +9,7 @@ const CreateTask = (props) => {
   }
 
   function handleSubmit(event) {
-    props.onAddTask(item);
+    props.onAddTask({ id: uuid(), title: item, isDone: false });
     setItem("");
     event.preventDefault();
   }
