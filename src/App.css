@@ -66,7 +66,7 @@
  /* Header */
  .header {
    text-align: center;
-   box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.3);
+   box-shadow: 0 0 10px 4px #e79f4cef;
  }
 
  .header_bg {
@@ -82,12 +82,12 @@
  }
 
  .inputTask {
-   width        : 300px;
-   height       : 40px;
-   margin-right : 1rem;
-   font-size    : 18px;
-   padding      : 5px;
-   border-radius: 5px;
+   width                     : 300px;
+   /* height                 : 20px; */
+   margin-right              : 2rem;
+   font-size                 : 18px;
+   /* padding                : 5px !important */
+   /*border-radius           : 5px; */
  }
 
  .addTask {
@@ -97,7 +97,7 @@
  }
 
  .container {
-   width : 80%;
+   width : 50%;
    height: 100%;
    margin: auto;
  }
@@ -105,7 +105,7 @@
  /* Task List Area */
  .taskItem {
    display              : grid;
-   grid-template-columns: 1fr 5fr 1fr;
+   grid-template-columns: 1fr 8fr 2fr;
    font-size            : 22px;
    padding              : 1rem;
  }

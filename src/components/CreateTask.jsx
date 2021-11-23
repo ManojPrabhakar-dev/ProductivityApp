@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
+import { Fab, TextField, Box } from "@mui/material";
+import { Add } from "@mui/icons-material";
 
 const CreateTask = (props) => {
   const [item, setItem] = useState("");
@@ -15,17 +17,28 @@ const CreateTask = (props) => {
   }
 
   return (
-    <div className="createTask py-1">
-      <input
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        py: 3,
+      }}
+    >
+      <TextField
         className="inputTask"
+        sx={{ pr: 2 }}
+        id="outlined-basic"
+        label="enter todo item"
+        variant="outlined"
         value={item}
         onChange={handleChange}
-        placeholder="enter todo item"
-      ></input>
-      <button className="addTask" onClick={handleSubmit}>
-        Add
-      </button>
-    </div>
+      />
+
+      <Fab color="primary" size="small" aria-label="add" onClick={handleSubmit}>
+        <Add />
+      </Fab>
+    </Box>
   );
 };
 

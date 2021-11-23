@@ -1,4 +1,7 @@
 import React from "react";
+import { Box } from "@mui/system";
+import { IconButton, Checkbox } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const TaskItem = (props) => {
   // const [isDone, setDone] = useState(false);
@@ -13,15 +16,39 @@ const TaskItem = (props) => {
   }
 
   return (
-    <div className="taskItem">
-      <div className="taskCheck">
-        <input type="checkbox" onChange={handleCheckedChanged} />
-      </div>
-      <p className={`taskName ${props.isDone && "done"}`}> {props.taskName} </p>
-      <button className="deleteTask" onClick={handleDelete}>
-        Delete
-      </button>
-    </div>
+    <Box
+      sx={{
+        boxShadow: 3,
+        display: "grid",
+        gridTemplateColumns: "1fr 8fr 2fr",
+        p: 1,
+      }}
+    >
+      {/* <input type="checkbox" onChange={handleCheckedChanged} /> */}
+      <Checkbox
+        onChange={handleCheckedChanged}
+        inputProps={{ "aria-label": "controlled" }}
+      />
+      <Box
+        sx={{
+          textDecoration: `${props.isDone ? "line-through" : "none"}`,
+          display: "flex",
+          alignItems: "center",
+          fontWeight: "500",
+          fontSize: 20,
+        }}
+      >
+        {props.taskName}
+      </Box>
+      <IconButton
+        bgcolor="primary"
+        color="secondary"
+        aria-label="add"
+        onClick={handleDelete}
+      >
+        <DeleteIcon />
+      </IconButton>
+    </Box>
   );
 };
 

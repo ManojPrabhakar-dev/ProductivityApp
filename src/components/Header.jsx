@@ -1,10 +1,13 @@
 import React from "react";
+import { Box } from "@mui/material";
 
 const Header = () => {
   return (
-    <div className="header header_bg">
-      <h1 className="py-1">React TODO</h1>
-    </div>
+    <Box
+      sx={{ bgcolor: "rgb(241, 190, 21)", textAlign: "center", boxShadow: 4 }}
+    >
+      <Box sx={{ typography: "h3", py: 1 }}>React TODO</Box>
+    </Box>
   );
 };
 

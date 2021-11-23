@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CreateTask from "./components/CreateTask";
 import TaskItem from "./components/TaskItem";
+import { Box } from "@mui/material";
 
 function App() {
   const [items, setItem] = useState([]);
@@ -29,25 +30,41 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <Box
+      sx={{
+        display: "grid",
+        gridTemplateRows: "1fr 1fr 5fr 1fr",
+        height: "100vh",
+        bgcolor: "#e79f4cef",
+      }}
+    >
       <Header />
       <CreateTask onAddTask={onAddTask} />
-      <div className="container">
+      <Box sx={{ width: "50%", mx: "auto" }}>
         {items.map((task) => {
           return (
-            <TaskItem
-              id={task.id}
-              key={task.id}
-              taskName={task.title}
-              isDone={task.isDone}
-              onDelete={deleteTask}
-              onUpdate={onUpdateTask}
-            />
+            <Box
+              sx={{
+                boxShadow: 2,
+                bgcolor: "background.paper",
+                borderRadius: 1,
+                my: 2,
+              }}
+            >
+              <TaskItem
+                id={task.id}
+                key={task.id}
+                taskName={task.title}
+                isDone={task.isDone}
+                onDelete={deleteTask}
+                onUpdate={onUpdateTask}
+              />
+            </Box>
           );
         })}
-      </div>
+      </Box>
       <Footer />
-    </div>
+    </Box>
   );
 }
 
